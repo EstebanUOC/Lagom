@@ -80,26 +80,4 @@ class SceneManager:
             if not self.isEmpty():
                 self.pop()
 
-    def pop_until_unit_scene(self):
-        from scenes.menu.unity_scene import UnityScene
-        from scenes.loading.loading_initialization import LoadingInitializationScene
-
-        while self.scenes:
-            top_scene = self.scenes[-1]
-            print("Type of top scene:", type(top_scene))
-            print("Is UnityScene?", isinstance(top_scene, UnityScene))
-
-            # If it's a LoadingInitializationScene, remove it too
-            if isinstance(top_scene, LoadingInitializationScene):
-                print("[SM] Popping LoadingInitializationScene to reach UnityScene")
-                self.pop()
-                continue
-
-            if isinstance(top_scene, UnityScene):
-                print("[SM] Found UnityScene, stopping pop.")
-                return
-
-            self.pop()
-
-        print("Warning: UnityScene not found in scene stack.")
 

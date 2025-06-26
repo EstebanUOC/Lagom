@@ -1,6 +1,6 @@
 #ui/button_ui.py
 import pygame
-from utils.fontloader import load_dejavu_body
+from constants.global_constants import FONT_ARIAL_ROUNDED_MT_BOLD
 from utils.colors import WHITE, AQUA, SCREAMING_GREEN, GREEN
 from utils.drawing import draw_interspersed_drop_shadow_text
 

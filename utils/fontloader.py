@@ -1,5 +1,5 @@
 import pygame
-from constants.global_constants import FONT_ARIAL_ROUNDED_MT_BOLD, FONT_DEJAVU_SANS_BOLD
+from constants.global_constants import FONT_ARIAL_ROUNDED_MT_BOLD
 import os
 
 def load_arial_score(size=90):
