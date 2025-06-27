@@ -16,7 +16,7 @@ class GM1Scene(Scene):
         super().__init__()
         self.correct_answer = False
         self.waiting = False
-        self.font = pygame.font.SysFont(None, 48)
+        self.font = pygame.font.SysFont(None, 72)
         self.camera_scanner = CameraScanner()
 
 
