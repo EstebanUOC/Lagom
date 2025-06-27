@@ -4,11 +4,11 @@ from scenes.core.scenes import Scene
 import pygame
 import globals
 from utils.colors import DARK_GREY
-from ui.shared_ui import SharedNavigationButtonsMixin
 from utils.color_sequence_checker import are_objects_in_correct_order
 from utils.helpers_render import render_check_if_order_correct
+from constants.audio_constants import fast_music
 
-class GM1Scene(Scene, SharedNavigationButtonsMixin):
+class GM1Scene(Scene):
     def __init__(self):
         try:
             super().__init__()
@@ -18,7 +18,6 @@ class GM1Scene(Scene, SharedNavigationButtonsMixin):
             self.btn_correct = None
             self.nomenclature = None
             self.current_index = None
-            self.init_nav_buttons(include_next=True, include_back=True, include_menu=True)
             self.order_correct = False
             self.targets = {}  # <-- Initialize targets
         except Exception as e:
@@ -27,6 +26,9 @@ class GM1Scene(Scene, SharedNavigationButtonsMixin):
     def onEnter(self):
         try:
             # Setup targets based on counter_scene_played
+            globals.soundManager.add_music('background_music', fast_music)
+            globals.soundManager.playMusicFade('background_music')
+
             if globals.counter_scene_played == 0:
                 self.targets = {
                     'red': (450, 500),

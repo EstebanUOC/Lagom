@@ -16,9 +16,8 @@ class SoundManager:
         self.targetMusicVolume = 1
         music_path = get_resource_path(constants.MusicPath, '')
         self.sounds = {
-            'secen_done': pygame.mixer.Sound(music_path + 'btnTono5.ogg'),
-            'btn_pressed_click': pygame.mixer.Sound(music_path + 'click.ogg'),
-            'btn_pop': pygame.mixer.Sound(music_path + 'pop.ogg')
+            'win': pygame.mixer.Sound(music_path + 'win.ogg')
+
         }
         self.music = {}
 

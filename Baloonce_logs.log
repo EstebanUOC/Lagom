@@ -284,3 +284,27 @@ DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
 DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
 DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
 DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera

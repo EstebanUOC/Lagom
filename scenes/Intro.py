@@ -1,15 +1,13 @@
 import globals
 from scenes.core.scenes import Scene
 import pygame
-from utils.colors import DARK_GREY
 from ui.shared_ui import SharedNavigationButtonsMixin
-from utils.drawing import draw_interspersed_drop_shadow_text
 from scenes.Order import OrderScene
 from utils.loaders import load_activity
 from scenes.leaderboard import LeaderBoard
 
 
-class IntroScene(Scene, SharedNavigationButtonsMixin):
+class IntroScene(Scene):
     def __init__(self):
         super().__init__()
 
@@ -17,7 +15,6 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         self.optionSelected = -1
         self.list_options = []
         self.scene_to_go = None
-        self.init_nav_buttons(include_next=True, include_back=False, include_menu=False)
         self.options_ready = False
 
         # --- NOVO ---
@@ -60,7 +57,7 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         print(f'[IntroScene] onEnter globals.world.entities: {globals.world.entities:}')
 
     def input(self, sm, inputStream, screen=None):
-        self.input_nav_buttons(sm, inputStream)
+
         mouse = inputStream.mouse
         mouse_pos = mouse.currentPos
 
@@ -99,7 +96,7 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
                 self.optionSelected += 1
 
     def update(self, sm, inputStream):
-        self.update_nav_buttons(inputStream)
+
 
         for i in range(len(self.list_options)):
             if self.optionSelected == i:
@@ -138,8 +135,8 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         mouse_pos = pygame.mouse.get_pos()
         self.draw_button(screen, self.button, "Start", self.font, mouse_pos)
 
-        # Desenhar botões de navegação se existirem
-        self.draw_nav_buttons(screen)
+
+
 
         # Desenhar opções anteriores (se houver)
         for i in range(len(self.list_options)):

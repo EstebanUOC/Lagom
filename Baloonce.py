@@ -8,6 +8,7 @@ from scenes.Intro import IntroScene
 import core.engine as engine
 import globals
 from factories.player_factory import makePlayer
+import soundmanager
 
 # Set up logging
 logging.basicConfig(filename='Baloonce_logs.log', level=logging.DEBUG)
@@ -49,6 +50,8 @@ globals.player1.camera = engine.CameraComponent()
 print(f'[main] globals.player1.camera = {globals.player1.camera}')
 globals.player1.position = engine.Position(0, 0, 0, 0)
 globals.player1.input = engine.Input(pygame.K_r)
+
+globals.soundManager = soundmanager.SoundManager()
 
 # Initialize the scene manager and other components
 inputStream = InputStream()

@@ -1,37 +1,48 @@
 from scenes.core.scenes import Scene
 import pygame
 from utils.colors import DARK_GREY
-from ui.shared_ui import SharedNavigationButtonsMixin
 from utils.drawing import drawImage, draw_interspersed_drop_shadow_text
 from scenes.GameMechanics.GM1 import GM1Scene
 import globals
+from constants.audio_constants import background_music
+import soundmanager
+from scenes.leaderboard import LeaderBoard
 
-class OrderScene(Scene, SharedNavigationButtonsMixin):
+class OrderScene(Scene):
     def __init__(self):
         super().__init__()
         self.option_values = []
         self.optionSelected = -1
         self.list_options = []
         self.scene_to_go = None
-        self.init_nav_buttons(include_next=True, include_back=True, include_menu=True)
+
         self.options_ready = False
         self.image_order = None
+        self.finished_session = False
 
 
 
     def onEnter(self):
-      if globals.counter_scene_played == 0:
-          self.image_order = pygame.image.load('assets/GUI/Order/0.jpg')
-      elif globals.counter_scene_played == 1:
-          self.image_order = pygame.image.load('assets/GUI/Order/1.jpg')
 
-      print('[OrderScene] onEnter load_activity globals.counter_scene_played :', globals.counter_scene_played)
+        globals.soundManager.add_music('background_music', background_music)
+        globals.soundManager.playMusicFade('background_music')
+
+        if globals.counter_scene_played == 0:
+            self.image_order = pygame.image.load('assets/GUI/Order/0.jpg')
+        elif globals.counter_scene_played == 1:
+            self.image_order = pygame.image.load('assets/GUI/Order/1.jpg')
+        elif globals.counter_scene_played == 2:
+            self.image_order = pygame.image.load('assets/GUI/Order/2.jpg')
+        elif globals.counter_scene_played >= 3:
+            self.finished_session = True
+
+
+        print('[OrderScene] onEnter load_activity globals.counter_scene_played :', globals.counter_scene_played)
 
 
 
     def input(self, sm, inputStream, screen=None):
         # Check for 'Q' key press to quit the game
-        self.input_nav_buttons(sm, inputStream)
         mouse = inputStream.mouse
         mouse_pos = mouse.currentPos
 
@@ -68,8 +79,9 @@ class OrderScene(Scene, SharedNavigationButtonsMixin):
 
 
     def update(self, sm, inputStream):
-        self.update_nav_buttons(inputStream)
 
+        if self.finished_session:
+            sm.push(LeaderBoard())
 
         for i in range(len(self.list_options)):
             if self.optionSelected == i:
@@ -82,8 +94,9 @@ class OrderScene(Scene, SharedNavigationButtonsMixin):
         drawImage(screen, self.image_order, 0, 0)
         draw_interspersed_drop_shadow_text(screen, "Order Scene", 550, 50)
 
-        self.draw_nav_buttons(screen)
+
 
         for i in range(len(self.list_options)):
             self.list_options[i].draw(screen)
+
 
