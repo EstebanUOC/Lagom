@@ -308,3 +308,87 @@ DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
 DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
 DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
 DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-18' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-17' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-20' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-14' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-19' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-21' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-7' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-5' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<GM1Scene.delayed_scene_change() running at C:\Users\Esteban\PycharmProjects\LagomPublic\scenes\GameMechanics\GM1.py:126> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_chain_future.<locals>._call_set_state() at C:\Users\Esteban\anaconda3\envs\env31012_clone_test\lib\asyncio\futures.py:392]>
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:system.camera_scanner:[CameraScanner] Stopped and released camera
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:asyncio:Using proactor: IocpProactor

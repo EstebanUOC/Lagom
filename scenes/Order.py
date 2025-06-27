@@ -55,7 +55,6 @@ class OrderScene(Scene):
                     self.activate_selection(sm)
                     return
 
-
         if inputStream.keyboard.isKeyPressed(pygame.K_RETURN):
             print('[OrderScene] Enter pressed')
             sm.push(GM1Scene())

@@ -109,7 +109,8 @@ class IntroScene(Scene):
         screen.blit(self.background, (0, 0))
 
         # Texto das regras em múltiplas linhas
-        rules_text = "1. Memorize\n2. Replicate hands only with no Help\n3. Check your results in the leaderboard"
+
+        rules_text = "1. Team up! Pick a name. \n2. Player 1 (screen) directs, Player 2 acts!\n3. Fastest Top 10 challenge!"
         rules_lines = rules_text.split('\n')
 
         t_x = (self.w - int(self.w * 0.8)) // 2
