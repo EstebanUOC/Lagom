@@ -64,7 +64,7 @@ class GM1Scene(Scene):
         if self.waiting:
             return  # Block input while waiting
 
-        if inputStream.keyboard.isKeyPressed(pygame.K_RETURN):
+        if inputStream.keyboard.isKeyPressed(pygame.K_c):
             self.handle_correct(sm)
 
         if inputStream.keyboard.isKeyPressed(pygame.K_ESCAPE):
@@ -123,7 +123,7 @@ class GM1Scene(Scene):
             elif globals.counter_scene_played == 1:
                 outline_positions = [(250, 350), (650, 350), (450, 150)]
             elif globals.counter_scene_played == 2:
-                outline_positions = [(450, 400), (150, 150), (800, 150), (450, 0)]
+                outline_positions = [(500, 400), (150, 150), (800, 150), (500, 50)]
 
             # Draw outlines based on positions
             for pos in outline_positions:
