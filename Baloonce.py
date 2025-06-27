@@ -2,12 +2,12 @@ import logging
 import pygame
 import threading
 import asyncio
-import utils
 from input_stream import InputStream
 from scenes.core.scenes import SceneManager
 from scenes.Intro import IntroScene
 import core.engine as engine
 import globals
+from factories.player_factory import makePlayer
 
 # Set up logging
 logging.basicConfig(filename='picofon_logs.log', level=logging.DEBUG)
@@ -39,22 +39,23 @@ screen = pygame.display.set_mode(globals.SCREEN_SIZE)
 pygame.display.set_caption('PICOFON V1.2')
 clock = pygame.time.Clock()
 
+# Create a player
+if globals.player1 is None:
+    print('[main] Creating player entity')
+    globals.player1 = makePlayer()
+    print('[main] Player created:', globals.player1)
+
+globals.player1.camera = engine.CameraComponent()
+print(f'[main] globals.player1.camera = {globals.player1.camera}')
+globals.player1.position = engine.Position(0, 0, 0, 0)
+globals.player1.input = engine.Input(pygame.K_r)
+
 # Initialize the scene manager and other components
 inputStream = InputStream()
 sceneManager = SceneManager()
 sceneManager.push(IntroScene())
 
 
-
-
-
-# Create a player
-globals.player1 = utils.makePlayer()
-globals.player1.camera = engine.CameraComponent()
-print(f'[main] globals.player1.camera = {globals.player1.camera}')
-globals.player1.animations = None
-globals.player1.position = engine.Position(0, 0, 0, 0)
-globals.player1.input = engine.Input(pygame.K_r)
 
 # Start the asyncio loop in a separate thread
 asyncio_loop = asyncio.new_event_loop()
@@ -71,21 +72,26 @@ check_event_loop_state(globals.asyncio_loop)
 # Main game loop
 running = True
 while running:
-    # Check for quit
-    for event in pygame.event.get():
+    events = pygame.event.get()  # ✅ Get events once here
+
+    for event in events:
         if event.type == pygame.QUIT:
             running = False
 
-    inputStream.processInput()
-    globals.soundManager.update()
+    inputStream.processInput(events)  # ✅ Pass the events down
 
     if sceneManager.isEmpty():
         running = False
+
     sceneManager.input(inputStream)
     sceneManager.update(inputStream)
     sceneManager.draw(screen)
 
     clock.tick(60)
+
+# At the end of Baloonce.py before quitting:
+if hasattr(globals.player1, "camera_scanner"):
+    globals.player1.camera_scanner.stop()
 
 # Clean up
 pygame.quit()

@@ -1,3 +1,4 @@
+#core/engine.py
 import pygame
 import globals
 import logging
@@ -6,7 +7,6 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-
 
 class System():
     def __init__(self):
@@ -17,6 +17,7 @@ class System():
 
     def update(self, screen=None, inputStream=None):
         for entity in globals.world.entities:
+
             if self.check(entity):
                 self.updateEntity(screen, inputStream, entity)
 

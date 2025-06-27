@@ -1,4 +1,3 @@
-from systems.animations import Animations
 
 class Entity:
     def __init__(self):
@@ -11,7 +10,7 @@ class Entity:
         self.buttonPressed = None  # To Know the button pressed by the player
         self.wordSpoken = None
         #self.hand = None
-        self.animations = Animations()  # crea un empty animations component
+
         self.state = 'idle'
         # self.action = None
         self.character = None

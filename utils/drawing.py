@@ -38,10 +38,10 @@ def draw_interspersed_drop_shadow_text(
     if callable(font):
         font = font()
 
-    from utils.fontloader import load_dejavu_title  # loads size 62 by default
+    from utils.fontloader import load_arial_small  # loads size 62 by default
     # Use default title font if not provided
     if font is None:
-        font = load_dejavu_title()
+        font = load_arial_small()
 
     start_x = x
     for char in text:
