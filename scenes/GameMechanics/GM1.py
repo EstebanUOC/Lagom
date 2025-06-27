@@ -9,7 +9,7 @@ from utils.helpers_render import render_check_if_order_correct
 from constants.audio_constants import fast_music
 import asyncio
 import globals
-
+import time
 
 class GM1Scene(Scene):
     def __init__(self):
@@ -22,6 +22,9 @@ class GM1Scene(Scene):
 
     def onEnter(self):
         try:
+            if globals.start_time is None:
+                globals.start_time = time.time()  # Start timer once
+
             # Setup targets based on counter_scene_played
             globals.soundManager.add_music('background_music', fast_music)
             globals.soundManager.playMusicFade('background_music')
@@ -63,6 +66,10 @@ class GM1Scene(Scene):
 
         if inputStream.keyboard.isKeyPressed(pygame.K_RETURN):
             self.handle_correct(sm)
+
+        if inputStream.keyboard.isKeyPressed(pygame.K_ESCAPE):
+            print("[GM1Scene] Escape pressed, going back to previous scene.")
+            sm.pop()
 
 
 
@@ -116,7 +123,7 @@ class GM1Scene(Scene):
             elif globals.counter_scene_played == 1:
                 outline_positions = [(250, 350), (650, 350), (450, 150)]
             elif globals.counter_scene_played == 2:
-                outline_positions = [(400, 300), (150, 150), (750, 150), (400, 0)]
+                outline_positions = [(450, 400), (150, 150), (800, 150), (450, 0)]
 
             # Draw outlines based on positions
             for pos in outline_positions:
@@ -131,6 +138,12 @@ class GM1Scene(Scene):
             else:
                 print("[GM1Scene] Drawing targets.")
 
+
+            # Draw timer at top-right corner
+            if globals.start_time is not None:
+                elapsed = int(time.time() - globals.start_time)
+                timer_text = self.font.render(f"Time: {elapsed}s", True, (0, 0, 0))
+                screen.blit(timer_text, (screen.get_width() - timer_text.get_width() - 20, 20))
 
         except Exception as e:
             print(f'[GM1][draw] Error: {e}')

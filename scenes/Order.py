@@ -7,6 +7,7 @@ import globals
 from constants.audio_constants import background_music
 import soundmanager
 from scenes.leaderboard import LeaderBoard
+import time
 
 class OrderScene(Scene):
     def __init__(self):
@@ -19,6 +20,7 @@ class OrderScene(Scene):
         self.options_ready = False
         self.image_order = None
         self.finished_session = False
+        self.font = pygame.font.SysFont(None, 48)
 
 
 
@@ -93,9 +95,10 @@ class OrderScene(Scene):
         drawImage(screen, self.image_order, 0, 0)
         draw_interspersed_drop_shadow_text(screen, "Order Scene", 550, 50)
 
-
-
-        for i in range(len(self.list_options)):
-            self.list_options[i].draw(screen)
+        # Draw timer in top-right corner
+        if globals.start_time is not None:
+            elapsed = int(time.time() - globals.start_time)
+            timer_text = self.font.render(f"Time: {elapsed}s", True, (255, 255, 255))
+            screen.blit(timer_text, (screen.get_width() - timer_text.get_width() - 20, 20))
 
 

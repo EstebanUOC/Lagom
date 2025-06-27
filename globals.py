@@ -51,3 +51,7 @@ is_production = False
 
 nickname = 'Noname'
 timer = 0
+
+import time
+
+start_time = None  # To store when the timer starts

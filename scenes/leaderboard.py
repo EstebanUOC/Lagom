@@ -3,6 +3,7 @@ from scenes.core.scenes import Scene
 import pygame
 import pandas as pd
 import os
+import time
 
 class LeaderBoard(Scene):
     def __init__(self):
@@ -21,6 +22,10 @@ class LeaderBoard(Scene):
         self.time = (pygame.time.get_ticks() - self.time) // 1000
         self.put_in_leaderboard(self.player, self.time)
         self.records = self.get_leaderboard()
+
+    def onEnter(self):
+        final_time = int(time.time() - globals.start_time)
+        globals.start_time = None  # Reset for next session
 
     def put_in_leaderboard(self, name, time):
         if os.path.isfile(self.filename):
