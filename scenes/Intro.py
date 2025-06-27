@@ -7,7 +7,6 @@ from utils.drawing import draw_interspersed_drop_shadow_text
 from scenes.Order import OrderScene
 from utils.loaders import load_activity
 
-
 class IntroScene(Scene, SharedNavigationButtonsMixin):
     def __init__(self):
         super().__init__()
@@ -69,7 +68,7 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         for event in inputStream.typed_characters:
             if event == "BACKSPACE":
                 self.input_text = self.input_text[:-1]
-            elif event == "RETURN":
+            elif event == "RETURN" and self.input_text:
                 if self.input_text:
                     self.start_game(sm)
             elif len(self.input_text) < self.max_chars:
@@ -157,4 +156,5 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
     def start_game(self, sm):
         print("Started game with name:", self.input_text)
         globals.nickname = self.input_text
+        globals.timer = 0
         sm.push(OrderScene())

@@ -50,3 +50,6 @@ face_tracking_ready = False
 # Flag order scenes
 counter_scene_played = 0
 is_production = False
+
+nickname = None
+timer = 0

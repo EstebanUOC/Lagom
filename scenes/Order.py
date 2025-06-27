@@ -21,7 +21,11 @@ class OrderScene(Scene, SharedNavigationButtonsMixin):
 
     def onEnter(self):
       if globals.counter_scene_played == 0:
-          self.image_order = pygame.image.load('assets/GUI/Order/order_1.png')
+          self.image_order = pygame.image.load('assets/GUI/Order/0.jpg')
+      elif globals.counter_scene_played == 1:
+          self.image_order = pygame.image.load('assets/GUI/Order/1.jpg')
+
+      print('[OrderScene] onEnter load_activity globals.counter_scene_played :', globals.counter_scene_played)
 
 
 

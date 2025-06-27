@@ -78,6 +78,7 @@ class GM1Scene(Scene, SharedNavigationButtonsMixin):
 
                     if self.order_correct:
                         print("[GM1] ✅ Objects correct - popping scene.")
+                        globals.counter_scene_played += 1
                         sm.pop()
 
         except Exception as e:
@@ -110,9 +111,7 @@ class GM1Scene(Scene, SharedNavigationButtonsMixin):
                     }
 
                     if self.order_correct:
-                        check_image_path = 'assets/GUI/Background/done.png'
-                        check_image = pygame.image.load(check_image_path).convert_alpha()
-                        screen.blit(check_image, (100, 100))
+                        render_check_if_order_correct(screen, position=(100, 100))
         except Exception as e:
             print(f'[GM1][draw] Error: {e}')
 
