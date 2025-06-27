@@ -18,8 +18,6 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         self.init_nav_buttons(include_next=True, include_back=False, include_menu=False)
         self.options_ready = False
 
-
-
     def onEnter(self):
         load_activity()
         print('[IntroScene] onEnter load_activity')
@@ -32,9 +30,6 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         self.input_nav_buttons(sm, inputStream)
         mouse = inputStream.mouse
         mouse_pos = mouse.currentPos
-
-
-
 
         if inputStream.keyboard.isKeyPressed(pygame.K_RETURN):
             print('[IntroScene] Enter pressed')
@@ -73,7 +68,6 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         #drawImage(screen, self.menu_path, 0, 0)
         draw_interspersed_drop_shadow_text(screen, "Intro", 550, 50)
         self.draw_nav_buttons(screen)
-
 
         for i in range(len(self.list_options)):
             self.list_options[i].draw(screen)

@@ -11,6 +11,7 @@ from utils.helpers_paths import get_resource_path
 import constants.global_constants as global_constants
 import constants.image_constants as image_constants
 from utils.color_sequence_checker import are_objects_in_correct_order
+from utils.helpers_render import render_check_if_order_correct
 # scenes/GM1.py
 
 class GM1Scene(Scene, SharedNavigationButtonsMixin):
@@ -24,7 +25,8 @@ class GM1Scene(Scene, SharedNavigationButtonsMixin):
             self.nomenclature = None
             self.current_index = None
             self.init_nav_buttons(include_next=True, include_back=True, include_menu=True)
-            # Init navigation buttons
+            self.order_correct = False
+
 
 
         except Exception as e:
@@ -60,38 +62,59 @@ class GM1Scene(Scene, SharedNavigationButtonsMixin):
         if inputStream.keyboard.isKeyPressed(pygame.K_q):
             pass
 
-
-
-
-
     def update(self, sm, inputStream):
         try:
-            # Find first entity with a camera
+            self.order_correct = False  # Reset each frame
+
             camera_entity = next((e for e in globals.world.entities if hasattr(e, "camera")), None)
             if camera_entity:
                 frame = self.camera_scanner.get_current_frame(camera_entity)
                 if frame is not None:
                     targets = {
-                        'blue': (630, 470)
-
+                        'blue': (450, 500),
+                        'yellow': (880, 500)
                     }
-                    if are_objects_in_correct_order(frame, self.camera_scanner.color_ranges, targets):
-                        print("GOOD Objects are correctly placed in GM1Scene!")
+                    self.order_correct = are_objects_in_correct_order(frame, self.camera_scanner.color_ranges, targets)
+
+                    if self.order_correct:
+                        print("[GM1] ✅ Objects correct - popping scene.")
+                        sm.pop()
 
         except Exception as e:
             print(f'[GM1][update] Error: {e}')
 
     def draw(self, sm, screen):
         try:
-            screen.fill((30, 30, 30))  # DARK_GREY
-
+            screen.fill((128, 128, 128))  # DARK_GREY
             self.camera_scanner.update(screen)
 
+            # Draw a 200x200 gray-outlined square with transparent inside
+            outline1_pos = (250, 350)  # position on screen
+            outline2_pos = (650, 350)  # position on screen
+            outline_size = 300
+            border_thickness = 4  # thickness of the border
 
+            pygame.draw.rect(screen, DARK_GREY, pygame.Rect(outline1_pos, (outline_size, outline_size)),
+                             width=border_thickness)
 
+            pygame.draw.rect(screen, DARK_GREY, pygame.Rect(outline2_pos, (outline_size, outline_size)),
+                             width=border_thickness)
+            # Get frame for rendering condition
+            camera_entity = next((e for e in globals.world.entities if hasattr(e, "camera")), None)
+            if camera_entity:
+                frame = self.camera_scanner.get_current_frame(camera_entity)
+                if frame is not None:
+                    targets = {
+                        'blue': (450, 500),
+                        'yellow': (880, 500)
+                    }
+
+                    if self.order_correct:
+                        check_image_path = 'assets/GUI/Background/done.png'
+                        check_image = pygame.image.load(check_image_path).convert_alpha()
+                        screen.blit(check_image, (100, 100))
         except Exception as e:
-           print(f'[GM1][draw] Error: {e}')
-
+            print(f'[GM1][draw] Error: {e}')
 
 
 

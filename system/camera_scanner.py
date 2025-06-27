@@ -9,7 +9,6 @@ import logging
 from core.engine import System, Position
 import globals
 
-
 logger = logging.getLogger(__name__)
 
 class CameraScanner(System):
@@ -25,7 +24,7 @@ class CameraScanner(System):
             'red': [(0, 100, 100), (10, 255, 255)],
             'green': [(40, 70, 70), (80, 255, 255)],
             'blue': [(100, 150, 0), (140, 255, 255)],
-            'yellow': [(20, 100, 100), (30, 255, 255)],
+            'yellow': [(15, 60, 60), (40, 255, 255)]
         }
 
     def check(self, entity):
@@ -73,8 +72,8 @@ class CameraScanner(System):
             contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
             for cnt in contours:
-                if cv2.contourArea(cnt) > 800:
-                    x, y, w, h = cv2.boundingRect(cnt)
+                x, y, w, h = cv2.boundingRect(cnt)
+                if w > 200 and h > 200:
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
                     cv2.putText(frame, color, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
 
@@ -82,6 +81,7 @@ class CameraScanner(System):
         frame = cv2.resize(frame, (globals.CAMERACV_WIDTH, globals.CAMERACV_HEIGHT))
         imgRGB = np.rot90(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
         surf = pygame.surfarray.make_surface(imgRGB).convert()
+
 
         if self.should_draw and screen:
             screen.set_clip(0, 0, globals.CAMERACV_WIDTH, globals.CAMERACV_HEIGHT)

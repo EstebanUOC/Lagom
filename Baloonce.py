@@ -10,7 +10,7 @@ import globals
 from factories.player_factory import makePlayer
 
 # Set up logging
-logging.basicConfig(filename='picofon_logs.log', level=logging.DEBUG)
+logging.basicConfig(filename='Baloonce_logs.log', level=logging.DEBUG)
 
 def start_asyncio_loop(loop):
     asyncio.set_event_loop(loop)
