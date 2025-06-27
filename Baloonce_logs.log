@@ -67,3 +67,5 @@ DEBUG:asyncio:Using proactor: IocpProactor
 DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
 DEBUG:asyncio:Using proactor: IocpProactor
 DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:system.camera_scanner:[CameraScanner] Initialized camera capture
