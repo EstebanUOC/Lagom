@@ -6,6 +6,8 @@ from ui.shared_ui import SharedNavigationButtonsMixin
 from utils.drawing import draw_interspersed_drop_shadow_text
 from scenes.Order import OrderScene
 from utils.loaders import load_activity
+from scenes.leaderboard import LeaderBoard
+
 
 class IntroScene(Scene, SharedNavigationButtonsMixin):
     def __init__(self):
@@ -21,7 +23,7 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         # --- NOVO ---
         self.w, self.h = 1280, 720
         self.font_size = int(0.05 * self.w)
-        self.font = pygame.font.Font(None, self.font_size)
+        self.font = pygame.font.Font("assets\Fonts\Dongle-Regular.ttf", self.font_size)
 
         # background
         self.background = pygame.image.load('assets/GUI/Background/bg.jpg')
@@ -42,8 +44,6 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         b_y = int(self.h * 0.95) - b_h
         self.button = pygame.Rect(b_x, b_y, b_w, b_h)
 
-        # texto de boas vindas
-        self.welcome_text = "Welcome!"
 
         # estado do input
         self.input_text = ""
@@ -68,7 +68,7 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         for event in inputStream.typed_characters:
             if event == "BACKSPACE":
                 self.input_text = self.input_text[:-1]
-            elif event == "RETURN" and self.input_text:
+            elif event == "RETURN":
                 if self.input_text:
                     self.start_game(sm)
             elif len(self.input_text) < self.max_chars:
@@ -84,8 +84,8 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
             print('[IntroScene] Enter pressed')
             sm.push(OrderScene())
 
-        if inputStream.keyboard.isKeyPressed(pygame.K_q):
-            pass
+        if inputStream.keyboard.isKeyPressed(pygame.K_l):
+            sm.push(LeaderBoard())
 
         if inputStream.keyboard.isKeyPressed(pygame.K_ESCAPE):
             sm.pop()
@@ -112,18 +112,18 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
         screen.blit(self.background, (0, 0))
 
         # Texto das regras em múltiplas linhas
-        rules_text = "1. Memorize\n2. Replicate hands only with n Help\n3. Check your results in the leaderboard"
+        rules_text = "1. Memorize\n2. Replicate hands only with no Help\n3. Check your results in the leaderboard"
         rules_lines = rules_text.split('\n')
 
         t_x = (self.w - int(self.w * 0.8)) // 2
-        t_y = int(self.h * 0.55) - int(self.h * 0.2)
+        t_y = int(self.h * 0.33)
         line_height = self.font.get_height()
 
         y_offset = t_y
         for line in rules_lines:
             line_surf = self.font.render(line, True, (0, 0, 0))
             screen.blit(line_surf, (t_x, y_offset))
-            y_offset += line_height + 5
+            y_offset += line_height
 
         # Caixa de input (com placeholder se estiver vazia)
         if self.input_text:
@@ -156,5 +156,5 @@ class IntroScene(Scene, SharedNavigationButtonsMixin):
     def start_game(self, sm):
         print("Started game with name:", self.input_text)
         globals.nickname = self.input_text
-        globals.timer = 0
+        globals.timer = pygame.time.get_ticks()
         sm.push(OrderScene())

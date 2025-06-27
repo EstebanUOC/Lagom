@@ -24,7 +24,7 @@ class CameraScanner(System):
             'red': [(0, 100, 100), (10, 255, 255)],
             'green': [(40, 70, 70), (80, 255, 255)],
             'blue': [(100, 150, 0), (140, 255, 255)],
-            'yellow': [(15, 60, 60), (40, 255, 255)]
+            'yellow': [(10, 100, 100), (25, 255, 255)]
         }
 
     def check(self, entity):
@@ -65,6 +65,7 @@ class CameraScanner(System):
             return
 
         frame = cv2.flip(frame, 1)
+
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
         for color, (lower, upper) in self.color_ranges.items():
@@ -107,6 +108,7 @@ class CameraScanner(System):
             print("[CameraScanner] ❌ Failed to read frame from camera")
             return None
 
-        return cv2.flip(frame, 1)  # Ensure consistency with updateEntity
+        return frame
+        #return cv2.flip(frame, 1)  # Ensure consistency with updateEntity
 
 

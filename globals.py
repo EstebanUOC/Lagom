@@ -45,11 +45,9 @@ hand_tracking_ready = False
 hand_tracking_playful_ready = False
 face_tracking_ready = False
 
-
-
 # Flag order scenes
 counter_scene_played = 0
 is_production = False
 
-nickname = None
+nickname = 'Noname'
 timer = 0

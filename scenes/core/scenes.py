@@ -53,6 +53,7 @@ class SceneManager:
         # present screen
         pygame.display.flip()
 
+
     def push(self, scene):
         self.exitScene()
         self.scenes.append(scene)

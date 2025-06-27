@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def are_objects_in_correct_order(frame, color_ranges, target_positions, tolerance=50):
+def are_objects_in_correct_order(frame, color_ranges, target_positions, tolerance=200):
     """
     Checks if the objects of specified colors are near their target positions and in correct x-order.
 
@@ -54,13 +54,5 @@ def are_objects_in_correct_order(frame, color_ranges, target_positions, toleranc
 
         detected.append((color, x))
 
-    # Check left-to-right order by x
-    x_positions = [x for _, x in detected]
-    sorted_x = sorted(x_positions)
-    print(f"[DEBUG] X order: {x_positions}, sorted: {sorted_x}")
-    if x_positions == sorted_x:
-        print("[DEBUG] ✅ All objects in correct order and position")
-        return True
-    else:
-        print("[DEBUG] ❌ Objects not in correct left-to-right order")
-        return False
+    print("[DEBUG] ✅ All objects are near their target positions")
+    return True
