@@ -105,7 +105,7 @@ class IntroScene(Scene):
                 self.list_options[i].update(inputStream, False)
 
     def draw(self, sm, screen):
-        # Fundo com a imagem
+        # Fundo com a imagem eg
         screen.blit(self.background, (0, 0))
 
         # Texto das regras em múltiplas linhas
